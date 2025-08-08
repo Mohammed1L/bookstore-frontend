@@ -1,0 +1,95 @@
+<nav class="navbar">
+  <div class="navbar-container">
+    <!-- Logo Section -->
+    <div class="logo-section">
+      <a class="logo" routerLink="/books">
+        <!-- icon + image, separated to avoid nested .logo confusion -->
+        <div class="logo-avatar" aria-hidden="true">
+          <!-- fallback inline SVG book/store icon -->
+          
+        </div>
+        <img class="logo-image" src="assets/logo.jpg" alt="Site Logo" />
+      
+      </a>
+    </div>
+
+    <!-- Search Bar Section -->
+    <div class="search-section">
+      <div class="search-container">
+        <input 
+          type="text" 
+          class="search-input" 
+          placeholder="Search books, authors, categories..."
+          [(ngModel)]="searchQuery"
+          (keyup.enter)="onSearch()"
+          aria-label="Search"
+        >
+        <button class="search-btn" (click)="onSearch()" aria-label="Search button">
+          <i class="fa fa-search" aria-hidden="true"></i>
+          
+          <svg class="fallback-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="7"></circle>
+            <line x1="16.65" y1="16.65" x2="21" y2="21"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+  
+    <div class="right-section">
+
+      <div class="profile-container">
+        <button class="profile-btn" (click)="onProfileClick()" aria-label="Profile menu">
+          <div class="profile-avatar">
+            <i class="fa fa-user" aria-hidden="true"></i>
+          
+            <svg class="fallback-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="7" r="4"></circle>
+              <path d="M6 21c0-3.3137 2.6863-6 6-6s6 2.6863 6 6"></path>
+            </svg>
+          </div>
+          <span class="profile-text">Profile</span>
+        </button>
+
+        <div class="profile-dropdown" *ngIf="showProfileDropdown">
+          <button class="dropdown-item" (click)="onOrdersClick()">
+            <i class="fa fa-box" aria-hidden="true"></i>
+            <span>Orders</span>
+          </button>
+          <button class="dropdown-item" (click)="onAdminClick()">
+            <i class="fa fa-cog" aria-hidden="true"></i>
+            <span>Admin Dashboard</span>
+          </button>
+          <div class="dropdown-divider"></div>
+          <button class="dropdown-item" *ngIf="logIn" (click)="onLogoutClick()">
+  <i class="fa fa-sign-out-alt" aria-hidden="true"></i>
+  <span>Logout</span>
+</button>
+
+<button class="dropdown-item" *ngIf="!logIn" (click)="onLoginClick()">
+  <i class="fa fa-sign-in-alt" aria-hidden="true"></i>
+  <span>Log in</span>
+</button>
+           <button class="dropdown-item" (click)="onMapClick()">
+            <i class="fa fa-sign-out-alt" aria-hidden="true"></i>
+            <span>Map</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Shopping Cart -->
+      <div class="cart-container">
+        <button class="cart-btn" (click)="onCartClick()" aria-label="View cart">
+          <div class="cart-icon-wrapper">
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            <!-- badge -->
+            <span *ngIf="signalItems() > 0" class="cart-badge">
+              {{ signalItems() }}
+            </span>
+          </div>
+          <span class="cart-text">Cart</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>

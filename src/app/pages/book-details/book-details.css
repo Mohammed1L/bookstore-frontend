@@ -1,0 +1,206 @@
+.details-page {
+  padding: 2rem;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #ffffff;
+  min-height: 100vh;
+  color: #264653; /* dark */
+}
+
+.back-button button {
+  background: rgba(231, 111, 81, 0.1); /* primary */
+  border: 1px solid rgba(231, 111, 81, 0.2);
+  color: #264653; /* dark */
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.back-button button:hover {
+  background: rgba(231, 111, 81, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.book-details-layout {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.cover-box {
+  background: rgba(42, 157, 143, 0.05); /* accent */
+  padding: 2rem;
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(42, 157, 143, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.cover-box::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(244, 162, 97, 0.1), transparent); /* secondary */
+  transform: rotate(45deg);
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+  100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+.cover-box img {
+  width: 280px;
+  border-radius: 16px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.cover-box img:hover {
+  transform: scale(1.05) rotateY(5deg);
+}
+
+.info-box {
+  flex: 1;
+  background: rgba(244, 162, 97, 0.05); /* secondary */
+  padding: 2.5rem;
+  border-radius: 24px;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(42, 157, 143, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+}
+
+.info-box h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #e76f51; /* primary */
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.author {
+  color: #2a9d8f; /* accent */
+  margin: 0.5rem 0 2rem;
+  font-weight: 500;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+}
+
+.description {
+  line-height: 1.8;
+  margin-top: 1rem;
+  color: #264653;
+  font-size: 1.05rem;
+}
+
+.buy-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(38, 70, 83, 0.2); /* dark */
+}
+
+.price {
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: #f4a261; /* secondary */
+}
+
+.buy-btn {
+  background: linear-gradient(135deg, #e76f51 0%, #f4a261 100%); /* primary to secondary */
+  color: white;
+  border: none;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.1rem;
+  box-shadow: 0 10px 30px rgba(231, 111, 81, 0.4); /* primary */
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+}
+
+.buy-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.buy-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(231, 111, 81, 0.6); /* primary */
+}
+
+.buy-btn:hover::before {
+  left: 100%;
+}
+
+.buy-btn:active {
+  transform: translateY(-1px);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .details-page {
+    padding: 1rem;
+  }
+
+  .book-details-layout {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .cover-box {
+    align-self: center;
+    padding: 1.5rem;
+  }
+
+  .cover-box img {
+    width: 200px;
+  }
+
+  .info-box {
+    padding: 1.5rem;
+  }
+
+  .info-box h1 {
+    font-size: 2rem;
+  }
+
+  .buy-row {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+
+  .buy-btn {
+    width: 100%;
+    text-align: center;
+  }
+}

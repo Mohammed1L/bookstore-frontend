@@ -1,12 +1,19 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-
+import { RouterModule, RouterOutlet } from '@angular/router';
+import { HeaderComponenet } from './shared/header/header';
+import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, HeaderComponenet, RouterModule,CommonModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-  protected title = 'bookstore-frontend';
+  constructor(private router: Router) {}
+
+ isAuthRoute(): boolean {
+  const currentPath = this.router.url.split('?')[0]; // remove query params
+  return ['/login', '/register'].includes(currentPath);
+}
 }

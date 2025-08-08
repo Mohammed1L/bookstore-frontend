@@ -1,0 +1,355 @@
+.admin-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: white;
+  min-height: 100vh;
+}
+
+.admin-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.admin-header h1 {
+  font-size: 2rem;
+  margin-bottom: 8px;
+  font-weight: 400;
+  color: #333;
+}
+
+.admin-header p {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Form Section */
+.form-section {
+  margin-bottom: 40px;
+}
+
+.form-card {
+  background: white;
+  border: 1px solid #ddd;
+  padding: 25px;
+  margin-bottom: 30px;
+}
+
+.form-card h2 {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  font-weight: 400;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 8px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-group label {
+  font-weight: 400;
+  margin-bottom: 6px;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  font-size: 0.9rem;
+  background: white;
+  width: 100%;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #333;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: flex-end;
+  padding-top: 20px;
+  border-top: 1px solid #e1e5e9;
+}
+
+/* Buttons */
+.btn {
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  font-size: 0.9rem;
+  font-weight: 400;
+  cursor: pointer;
+  background: white;
+  color: #333;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn:hover {
+  background: #f5f5f5;
+}
+
+.btn-primary {
+  background: #333;
+  color: white;
+  border: 1px solid #333;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: #555;
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background: white;
+  color: #333;
+  border: 1px solid #ccc;
+}
+
+.btn-secondary:hover {
+  background: #f5f5f5;
+}
+
+.btn-edit {
+  background: white;
+  color: #333;
+  padding: 4px 8px;
+  font-size: 0.8rem;
+  border: 1px solid #ccc;
+}
+
+.btn-edit:hover {
+  background: #f5f5f5;
+}
+
+.btn-delete {
+  background: white;
+  color: #333;
+  padding: 4px 8px;
+  font-size: 0.8rem;
+  border: 1px solid #ccc;
+}
+
+.btn-delete:hover {
+  background: #f5f5f5;
+}
+
+/* Table Section */
+.table-section {
+  margin-bottom: 40px;
+}
+
+.table-card {
+  background: white;
+  border: 1px solid #ddd;
+  padding: 25px;
+}
+
+.table-card h2 {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  font-weight: 400;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 8px;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+.books-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: white;
+  border: 1px solid #ddd;
+}
+
+.books-table thead {
+  background: #f9f9f9;
+}
+
+.books-table th {
+  padding: 10px 8px;
+  text-align: left;
+  font-weight: 400;
+  font-size: 0.85rem;
+  color: #333;
+  border-bottom: 1px solid #ddd;
+}
+
+.books-table tbody tr {
+  border-bottom: 1px solid #ddd;
+}
+
+.books-table tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+.books-table td {
+  padding: 10px 8px;
+  vertical-align: middle;
+}
+
+.book-image {
+  width: 80px;
+}
+
+.book-thumbnail {
+  width: 40px;
+  height: 50px;
+  object-fit: cover;
+  border: 1px solid #ddd;
+}
+
+.book-title {
+  font-weight: 400;
+  color: #333;
+  max-width: 150px;
+  font-size: 0.85rem;
+}
+
+.book-author {
+  color: #666;
+  font-size: 0.8rem;
+}
+
+.book-author-id {
+  color: #666;
+  font-size: 0.75rem;
+  text-align: center;
+  font-weight: 400;
+}
+
+.book-category {
+  color: #666;
+  font-size: 0.8rem;
+}
+
+.book-price {
+  font-weight: 400;
+  color: #333;
+  font-size: 0.85rem;
+}
+
+.book-quantity {
+  text-align: center;
+}
+
+.quantity-badge {
+  display: inline-block;
+  padding: 2px 6px;
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  font-weight: 400;
+  color: #333;
+  font-size: 0.75rem;
+  min-width: 25px;
+  text-align: center;
+}
+
+.quantity-badge.low-stock {
+  background: #f5f5f5;
+  color: #333;
+  border: 1px solid #ccc;
+}
+
+.book-actions {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: #666;
+}
+
+.empty-state p {
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .admin-container {
+    padding: 15px;
+  }
+  
+  .admin-header h1 {
+    font-size: 2rem;
+  }
+  
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+  }
+  
+  .books-table {
+    font-size: 0.9rem;
+  }
+  
+  .book-thumbnail {
+    width: 50px;
+    height: 65px;
+  }
+  
+  .book-actions {
+    flex-direction: column;
+  }
+  
+  .btn-edit,
+  .btn-delete {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-card,
+  .table-card {
+    padding: 20px;
+  }
+  
+  .books-table th,
+  .books-table td {
+    padding: 10px 8px;
+  }
+  
+  .book-title {
+    max-width: 150px;
+  }
+} 

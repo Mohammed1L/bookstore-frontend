@@ -1,0 +1,35 @@
+<div class="register-container">
+  <div class="register-form">
+    <img src="/assets/user.jpg" class="logo" alt="Logo" />
+    <h4>Join us today!</h4>
+    <h2>Create your account</h2>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <label for="email">E-mail</label>
+      <input id="email" formControlName="email" type="email" placeholder="john@mail.com" />
+      <div class="error-messages" *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
+        <small *ngIf="registerForm.get('email')?.errors?.['required']">Email is required.</small>
+        <small *ngIf="registerForm.get('email')?.errors?.['email']">Invalid email format.</small>
+      </div>
+
+      <label for="password">Password</label>
+      <input id="password" formControlName="password" type="password" placeholder="••••••••" />
+      <div class="error-messages" *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">
+        <small *ngIf="registerForm.get('password')?.errors?.['required']">Password is required.</small>
+      </div>
+
+      <label for="confirmPassword">Confirm Password</label>
+      <input id="confirmPassword" formControlName="confirmPassword" type="password" placeholder="••••••••" />
+      <div class="error-messages" *ngIf="registerForm.get('confirmPassword')?.invalid && registerForm.get('confirmPassword')?.touched">
+        <small *ngIf="registerForm.get('confirmPassword')?.errors?.['required']">Confirm Password is required.</small>
+      </div>
+
+      <button type="submit" class="btn-primary" [disabled]="registerForm.invalid">Register</button>
+      <button type="button" class="btn-secondary" (click)="goToLogin()">Back to Login</button>
+      
+    </form>
+  </div>
+
+  <div class="register-image">
+    <img src="/assets/Background.png" alt="Register illustration" />
+  </div>
+</div>

@@ -1,0 +1,63 @@
+
+<div class="loading-overlay" *ngIf="loading">
+  <div class="loading-spinner"></div>
+  <p class="loading-text">Loading Author...</p>
+</div>
+
+<main class="author-page-container">
+  <header class="author-header">
+    <div class="author-header-content">
+      <div class="author-image-container">
+        <img src="assets/user.jpg" [alt]="author.name" class="author-image" />
+      </div>
+      <h1 class="author-name">{{ author.name }}</h1>
+      <div class="author-badge">Author Profile</div>
+    </div>
+  </header>
+
+  <section class="author-details">
+    <div class="author-bio-section">
+      <div class="section-header">
+        <div class="section-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+          </svg>
+        </div>
+        <h2 class="section-title">About the Author</h2>
+      </div>
+      <div class="author-bio-card">
+        <div class="bio-content">{{ author.bio }}</div>
+      </div>
+    </div>
+
+    <div class="author-books-section">
+      <div class="section-header">
+        <div class="section-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z"/>
+          </svg>
+        </div>
+        <h2 class="section-title">Author's Books</h2>
+        <div class="books-count">{{ books.length }} {{ books.length === 1 ? 'Book' : 'Books' }}</div>
+      </div>
+      
+      <div class="books-grid">
+        <article *ngFor="let book of books;" class="book-card">
+          <div class="book-cover">
+            <img [src]="book.imageUrl" [alt]="book.title" class="book-image">
+            <div class="book-overlay">
+              <a [routerLink]="['/books', book.id]" class="view-book-btn">View Details</a>
+            </div>
+          </div>
+          <div class="book-info">
+            <h3 class="book-title">{{ book.title }}</h3>
+            <div class="book-price">
+              <span class="price-currency">$</span>
+              <span class="price-amount">{{ book.price }}</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
