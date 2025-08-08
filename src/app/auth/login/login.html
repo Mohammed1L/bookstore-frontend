@@ -1,0 +1,33 @@
+<div class="login-container">
+ 
+ <div class="login-image">
+  <img src="/assets/Background.png" alt="Login illustration" />
+</div>
+
+  
+  <div class="login-form">
+    <img src="/assets/user.jpg" class="logo" alt="Logo" />
+
+    <h4>Welcome back!</h4>
+    <h2>Login to your account</h2>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <label for="email">E-mail</label>
+      <input id="email" formControlName="email" type="email" placeholder="john@mail.com" />
+
+      <label for="password">Password</label>
+      <input id="password" formControlName="password" type="password" placeholder="••••••••" />
+
+      <div class="remember-row">
+        <input type="checkbox" id="rememberMe" />
+        <label for="rememberMe">Remember Me</label>
+      </div>
+
+      <button type="submit" class="btn-primary" [disabled]="loginForm.invalid">Login</button>
+      <button type="button" class="btn-secondary" (click)="goToRegister()">Register</button>
+      <button type="button" class="btn-tertiary" (click)="goToBooks()">Go to Books</button>
+    </form>
+  </div>
+</div>
+
+

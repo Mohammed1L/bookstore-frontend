@@ -1,0 +1,91 @@
+<!-- Updated full HTML with unit price, subtotal, and total -->
+<div class="order-container no-header">
+  <!-- Large background picture on the right -->
+  <img class="background-picture" src="assets/Cart.jpg" alt="Shopping Cart Background" />
+
+  <div class="glass-panel no-header">
+    <div class="top-section">
+      <!-- Shopping cart icon on the left -->
+      <span class="cart-icon">🛒</span>
+      <div class="order-info">
+        <h1 class="order-title clean">Your Order</h1>
+        <p class="order-subtitle">Review your selected items below</p>
+        <div class="items-counter clean">
+          <span class="counter-number clean">{{ items.length }}</span>
+          <span class="counter-text clean">{{ items.length === 1 ? 'Item' : 'Items' }}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Order Items Section - Only show when not confirmed -->
+    <div *ngIf="!confirmed()" class="books-container">
+      <div class="book-card" *ngFor="let item of items; trackBy: trackByBookId">
+        <div class="book-cover">
+          <img [src]="item.bookImageUrl" [alt]="item.bookTitle" class="cover-image" />
+          <div class="quantity-overlay">{{ item.quantity }}</div>
+
+          <!-- price info: unit price and subtotal -->
+          <div class="item-price">
+            <div>Price: {{ item.price | currency }}</div>
+            <div>Subtotal: {{ (item.price * item.quantity) | currency }}</div>
+          </div>
+        </div>
+        <div class="book-info">
+          <h3 class="book-title">{{ item.bookTitle }}</h3>
+          <div class="book-meta">
+            <span class="qty-label">Quantity</span>
+            <div class="qty-controls">
+              <button (click)="decrease(item)" aria-label="Decrease quantity">−</button>
+              <span class="qty-value">{{ item.quantity }}</span>
+              <button (click)="increase(item)" aria-label="Increase quantity">+</button>
+            </div>
+            <button class="remove-btn" (click)="remove(item)">Remove</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- empty state if no items -->
+      <div *ngIf="items.length === 0" class="empty-state">
+        <p>Your cart is empty.</p>
+      </div>
+
+      <!-- total price summary -->
+      <div *ngIf="items.length > 0" class="order-summary">
+        <div class="total">
+          <strong>Total: {{ totalPrice() | currency }}</strong>
+        </div>
+      </div>
+    </div>
+
+    <!-- Order Confirmation Section - Only show when confirmed -->
+    <div *ngIf="confirmed()" class="order-confirmation">
+      <div class="confirmation-content">
+        <div class="confirmation-icon">✅</div>
+        <h2 class="confirmation-title">Order Placed Successfully!</h2>
+        <p class="confirmation-message">
+          Your order has been confirmed and is being processed. You can track your order status and view all your purchases in your order history.
+        </p>
+        <button class="confirmation-link" (click)="goToOrderHistory()">
+          <span>📋</span>
+          <span>View Order History</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Actions Panel - Show different buttons based on confirmation state -->
+    <div class="actions-panel">
+      <button class="action-btn cancel-btn" (click)="cancelOrder()">
+        <span class="btn-icon">✕</span>
+        <span class="btn-text">{{ confirmed() ? 'Close' : 'Cancel' }}</span>
+      </button>
+      <button *ngIf="!confirmed()" class="action-btn confirm-btn" (click)="confirmOrder()">
+        <span class="btn-icon">✓</span>
+        <span class="btn-text">Confirm Order</span>
+      </button>
+      <button *ngIf="confirmed()" class="action-btn confirm-btn" (click)="goToOrderHistory()">
+        <span class="btn-icon">📋</span>
+        <span class="btn-text">Order History</span>
+      </button>
+    </div>
+  </div>
+</div>

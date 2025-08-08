@@ -1,0 +1,48 @@
+<!-- Category Filter Dropdown - Left Sidebar -->
+<div class="filter-section">
+  <label for="categoryFilter">Filter</label>
+  <select id="categoryFilter" [(ngModel)]="selectedCategory" (change)="onCategoryChange()">
+    <option value="">All Categories</option>
+    <option *ngFor="let category of availableCategories" [value]="category">
+      {{ category }}
+    </option>
+  </select>
+</div>
+
+<!-- Main Content Area -->
+<div class="main-content">
+  <div class="hero-section">
+    <div class="hero-content">
+      <h1>Discover Your Next Favorite Book</h1>
+      <p>Turn every page into a new adventure explore worlds unknown, gain wisdom from great minds, and immerse yourself in stories that spark your imagination and inspire your next chapter in life.</p>
+      <button (click)="scrollToBooks()" class="hero-btn">Shop Now</button>
+    </div>
+    <div class="hero-image">
+      <img src="assets/Cart.jpg" alt="Books Hero Image" />
+    </div>
+  </div>
+
+  <div class="books-container" *ngIf="filteredBooks && (filteredBooks | keyvalue).length > 0">
+    <div *ngFor="let category of filteredBooks | keyvalue">
+      <h2>{{ category.key }}</h2>
+      <div class="book-grid">
+        <div class="book-card" *ngFor="let book of category.value">
+          <img [src]="book.imageUrl || 'assets/default-book.jpg'" [alt]="book.title" />
+          <div class="book-info">
+            <div class="category">{{ category.key }}</div>
+            <h3>{{ book.title }}</h3>
+            <a [routerLink]="['/author', book.authorId]" class="author">{{ book.authorName }}</a>
+            <div class="price">${{ book.price }}</div>
+            <a [routerLink]="['/books', book.id]" class="details-btn">View Details</a>
+            <button (click)="addOrder(book)">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Message when no books match filter -->
+  <div class="no-books" *ngIf="selectedCategory && (!filteredBooks || (filteredBooks | keyvalue).length === 0)">
+    <p>No books found in the "{{ selectedCategory }}" category.</p>
+  </div>
+</div>

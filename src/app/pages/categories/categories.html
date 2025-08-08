@@ -1,0 +1,15 @@
+<div class="categories-container">
+  <div *ngFor="let category of groupedBooks | keyvalue">
+    <h2>{{ category.key }}</h2>
+    <div class="book-grid">
+      <a class="book-card" *ngFor="let book of category.value" [routerLink]="['/books', book.id]">
+        <img [src]="book.imageUrl" />
+        <div class="book-info">
+          <h3>{{ book.title }}</h3>
+          <p class="author">{{ book.authorName }}</p>
+          <p class="price">{{ book.price }} $</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
