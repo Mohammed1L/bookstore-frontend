@@ -19,8 +19,8 @@ export const routes: Routes = [
   {path: "author/:id", component: Author},
   {path:"cart", component: Cart},
   {path:'order',component: OrderHistory},
+  {path:'map',component: StoreMapComponent},
   {path:'admin',component: AdminComponent, canActivate: [AdminGuard]},
-  {path:'map',component:StoreMapComponent},
   { path: '', redirectTo: 'books', pathMatch: 'full' },
   
 

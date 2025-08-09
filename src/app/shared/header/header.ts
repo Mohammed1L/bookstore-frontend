@@ -17,7 +17,6 @@ export class HeaderComponenet {
    items: any[] = [];
    showProfileDropdown = false;
    searchQuery: string = '';
-   logIn = false;
 
    public signalItems = computed(()=> this.order.orderSignal().length)
    
@@ -26,9 +25,6 @@ export class HeaderComponenet {
 
     ngOnInit(){
       this.order.orderSignal
-      if(localStorage.getItem("token")){
-        this.logIn = true;
-      }
       
      
     console.log("This is from header",this.items)
@@ -71,23 +67,19 @@ export class HeaderComponenet {
     this.route.navigate(['/admin']);
   }
 
-
-onLogoutClick(){
-  localStorage.removeItem('token');
-  sessionStorage.clear();
-
-  
-  this.route.navigate(['/login']);
+onAccountClick(){
 
 }
+onLogoutClick(){
+  // clear auth-related storage and navigate to login
+  localStorage.removeItem('token');
+  this.order.clearOrders();
+  this.showProfileDropdown = false;
+  this.route.navigate(['/login']);
+}
+
 onMapClick(){
   this.route.navigate(['/map']);
-}
-
-onLoginClick(){
- this.logIn = true;
-  this.route.navigate(['/login']);
-
 }
   
 

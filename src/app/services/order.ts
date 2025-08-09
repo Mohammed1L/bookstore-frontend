@@ -1,27 +1,24 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { Observable } from 'rxjs';
-import { signal } from '@angular/core';
 
 export interface OrderDetail {
   bookId: number;
   price: number;
   quantity: number;
-  bookTitle: string;
-  bookImageUrl: string;
+  bookTitle?: string;
+  bookImageUrl?: string;
 }
 
 export interface RegularOrder {
-  PriceAdded: number;
-  Date: string;
-  OrderStatus: string;
+  id: number;
+  total: number;
+  createdAt: string;
 }
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable({ providedIn: 'root' })
 export class OrderService {
-  private apiUrl = 'http://localhost:5274/api/Order';
+  private apiUrl = 'https://my-dotnet-backend-123.azurewebsites.net/api/Order';
   private orderList: OrderDetail[] = [];
   public orderSignal = signal<OrderDetail[]>([]); // always expose a copy
 
@@ -107,7 +104,7 @@ export class OrderService {
     const token = localStorage.getItem('token') ?? '';
     const headers = new HttpHeaders({ Authorization: `Bearer ${token}` });
     return this.http.get<OrderDetail[]>(
-      `http://localhost:5274/api/Book/by-order/${Id}`,
+      `https://my-dotnet-backend-123.azurewebsites.net/api/Book/by-order/${Id}`,
       { headers }
     );
   }

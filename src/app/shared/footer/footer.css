@@ -1,0 +1,64 @@
+/* Solution 1: Add position relative to make z-index work */
+.container {
+    z-index: 100000;
+}
+
+.site-footer {
+    position: relative; /* Add this - z-index only works with positioned elements */
+    border-top: 1px solid #ddd;
+    padding: 16px 20px;
+    margin-top: 48px;
+    background: hsl(0, 0%, 100%);
+    color: #333;
+    z-index: 100001; /* Make it higher than container */
+}
+
+/* Alternative Solution 2: If you want it to stick to bottom */
+/*
+.site-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-top: 1px solid #ddd;
+    padding: 16px 20px;
+    background: hsl(0, 0%, 100%);
+    color: #333;
+    z-index: 100001;
+}
+*/
+
+/* Alternative Solution 3: Clear any floats that might be causing overlap */
+/*
+.site-footer {
+    clear: both;
+    border-top: 1px solid #ddd;
+    padding: 16px 20px;
+    margin-top: 48px;
+    background: hsl(0, 0%, 100%);
+    color: #333;
+}
+*/
+
+.site-footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.site-footer a {
+    color: #333;
+    text-decoration: none;
+    margin-left: 12px;
+}
+
+.site-footer a:hover {
+    text-decoration: underline;
+}
+
+.site-footer .sep {
+    margin: 0 8px;
+    color: #999;
+}

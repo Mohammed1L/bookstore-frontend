@@ -184,7 +184,7 @@ export class AdminComponent implements OnInit {
       const formData = new FormData();
       formData.append('image', this.selectedFile);
 
-      this.http.post('http://localhost:5274/api/upload', formData)
+      this.http.post('https://my-dotnet-backend-123.azurewebsites.net/api/upload', formData)
         .subscribe({
           next: (response: any) => {
             resolve(response.imageUrl);
