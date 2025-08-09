@@ -109,14 +109,14 @@ export class Books implements OnInit {
     const imageUrl = book.imageUrl;
     const title = book.title;
     const order = {
-      bookId: book.id, 
-      price: book.price, 
+      bookId: book.id, // make sure 'id' is correct
+      price: book.price, // make sure 'price' is a property
       quantity: 1,
       bookTitle: book.title,
       bookImageUrl: book.imageUrl
     };
     console.log("is image going through this ? " + book.id);
-    this.order.addOrder(order); 
+    this.order.addOrder(order); // Calls method inside the child
   }
 
   scrollToBooks() {

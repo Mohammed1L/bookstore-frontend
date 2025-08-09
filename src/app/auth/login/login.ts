@@ -24,7 +24,7 @@ export class Login {
     if(this.loginForm.valid){
       const formData = this.loginForm.value; // form data will be converted to json object
       console.log("Form is Submitted", formData); // to check if its working 
-      this.http.post<any>('http://localhost:5274/api/auth/login', formData)// still didn't implment the auth endpoint 
+      this.http.post<any>('https://my-dotnet-backend-123.azurewebsites.net/api/auth/login', formData)// still didn't implment the auth endpoint 
   .subscribe({ // Observable to handle the response
     next: (response) => {
       console.log('Login successful:', response);

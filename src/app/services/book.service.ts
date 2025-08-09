@@ -23,7 +23,7 @@ export class BookService {
   // POST create book: localhost:5274/api/Book (without ID)
   // PUT update book: localhost:5274/api/Book/{Id}
   // DELETE book: localhost:5274/api/Book/{Id}
-  private apiUrl = 'http://localhost:5274/api/Book'; // Your backend endpoint
+  private apiUrl = 'https://my-dotnet-backend-123.azurewebsites.net/api/Book'; // Your backend endpoint
 
   constructor(private http: HttpClient) {}
 

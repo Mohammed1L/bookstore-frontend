@@ -1,11 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { BookService, Book } from '../services/book.service';
 import { NgFor, NgIf } from '@angular/common';
-import { RouterModule } from '@angular/router';
+
 export interface AuthorDetails {
   bio:string;
   name:string;
@@ -36,7 +36,7 @@ private Book: BookService){}
   ngOnInit() {
   this.authorId =this.route.snapshot.paramMap.get('id')!;
      console.log(this.authorId)
-  this.http.get<AuthorDetails>("http://localhost:5274/api/Author/" + this.authorId)
+  this.http.get<AuthorDetails>("https://my-dotnet-backend-123.azurewebsites.net/api/Author/" + this.authorId)
     .subscribe({
       next: data => {
         this.author = data;

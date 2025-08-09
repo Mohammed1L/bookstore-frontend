@@ -26,7 +26,7 @@ export class Register {
     if (this.registerForm.valid) {
       const formData = this.registerForm.value;
 
-      this.http.post('http://localhost:5274/api/auth/register', formData).subscribe({
+      this.http.post('https://my-dotnet-backend-123.azurewebsites.net/api/auth/register', formData).subscribe({
         next: () => {
           console.log('Registration successful');
           this.router.navigate(['/login']);
