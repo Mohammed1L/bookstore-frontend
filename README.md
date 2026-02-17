@@ -37,7 +37,24 @@ It is designed as a training project to apply best practices in **full-stack dev
    - Build interactive UI and connect to backend.
 
 ---
+## 📌 Pictures
+   <img width="1470" height="844" alt="Screenshot 1447-02-15 at 5 23 03 PM" src="https://github.com/user-attachments/assets/2beefaae-18ce-4de3-840c-8b37f7792a2c" />
+<img width="1470" height="691" alt="Screenshot 1447-02-15 at 5 24 35 PM" src="https://github.com/user-attachments/assets/949e6b09-416c-4029-8fd0-bacf96c6593b" />
+<img width="1436" height="834" alt="Screenshot 1447-02-15 at 5 25 48 PM" src="https://github.com/user-attachments/assets/aa576afd-27a5-4e6b-9f31-d01f0093fe30" />
+<img width="1470" height="835" alt="Screenshot 1447-02-15 at 5 16 36 PM" src="https://github.com/user-attachments/assets/8555bab4-fd76-41d5-8569-1807b8c66056" />
+<img width="1470" height="833" alt="Screenshot 1447-02-15 at 5 27 36 PM" src="https://github.com/user-attachments/assets/9279b081-3b6d-4a47-8845-9c4acffaf2aa" />
+<img width="1469" height="834" alt="Screenshot 1447-02-15 at 5 19 26 PM" src="https://github.com/user-attachments/assets/03aa473e-362f-490a-b589-d5fb72561ffd" />
+<img width="1470" height="715" alt="Screenshot 1447-02-15 at 5 20 34 PM" src="https://github.com/user-attachments/assets/edac8a10-fe73-405d-96a9-0d179d74564c" />
+<img width="1470" height="841" alt="Screenshot 1447-02-15 at 5 21 07 PM" src="https://github.com/user-attachments/assets/0b6e7272-ad35-4157-97d3-c2227c62953a" />
 
+
+
+
+
+
+
+
+---
 ## 👥 User Roles
 
 - **Admin**  
