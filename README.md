@@ -46,7 +46,8 @@ It is designed as a training project to apply best practices in **full-stack dev
 <img width="1469" height="834" alt="Screenshot 1447-02-15 at 5 19 26 PM" src="https://github.com/user-attachments/assets/03aa473e-362f-490a-b589-d5fb72561ffd" />
 <img width="1470" height="715" alt="Screenshot 1447-02-15 at 5 20 34 PM" src="https://github.com/user-attachments/assets/edac8a10-fe73-405d-96a9-0d179d74564c" />
 <img width="1470" height="841" alt="Screenshot 1447-02-15 at 5 21 07 PM" src="https://github.com/user-attachments/assets/0b6e7272-ad35-4157-97d3-c2227c62953a" />
-![Uploading Screenshot 1447-02-15 at 5.23.56 PM.png…]()
+<img width="1470" height="837" alt="Screenshot 1447-02-15 at 5 23 56 PM" src="https://github.com/user-attachments/assets/1ba589a7-a509-42e4-90ad-a7e6765980ce" />
+
 
 
 
